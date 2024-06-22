@@ -5,7 +5,7 @@ metadata:
   labels:
     app: welcome-app
   annotations:
-    external-dns.alpha.kubernetes.io/hostname: welcome-prod.reankloud.site
+    external-dns.alpha.kubernetes.io/hostname: welcome-dev.reankloud.site
     service.beta.kubernetes.io/aws-load-balancer-type: external
     service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
 spec:
