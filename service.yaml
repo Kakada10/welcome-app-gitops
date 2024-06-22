@@ -9,7 +9,7 @@ spec:
     app: welcome-app-dev
 
   ports:
-    - port: 3000
+    - port: 3001
       targetPort: 3000
 
   type: LoadBalancer
