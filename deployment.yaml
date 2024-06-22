@@ -1,16 +1,16 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: welcome-app-deployment
+  name: welcome-app-deployment-dev
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: welcome-app
+      app: welcome-app-dev
   template:
     metadata:
       labels:
-        app: welcome-app
+        app: welcome-app-dev
     spec:
       containers:
         - name: welcome-app
