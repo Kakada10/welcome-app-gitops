@@ -4,10 +4,6 @@ metadata:
   name: welcome-app-service
   labels:
     app: welcome-app
-  annotations:
-    external-dns.alpha.kubernetes.io/hostname: welcome-dev.reankloud.site
-    service.beta.kubernetes.io/aws-load-balancer-type: external
-    service.beta.kubernetes.io/aws-load-balancer-scheme: internet-facing
 spec:
   selector:
     app: welcome-app
