@@ -1,20 +1,20 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: reddit-clone-app-deployment
+  name: welcome-app-deployment
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: reddit-clone-app
+      app: welcome-app
   template:
     metadata:
       labels:
-        app: reddit-clone-app
+        app: welcome-app
     spec:
       containers:
-        - name: reddit-clone-app
-          image: capybara22/reddit-clone-pipeline:1.0.0-9
+        - name: welcome-app
+          image: capybara22/welcome-app:prod-2
           resources:
             limits:
               cpu: "1"
