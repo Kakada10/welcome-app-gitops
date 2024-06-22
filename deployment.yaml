@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: welcome-app-deployment
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: welcome-app
+  template:
+    metadata:
+      labels:
+        app: welcome-app
+    spec:
+      containers:
+        - name: welcome-app
+          image: capybara22/welcome-app:qa-2
+          resources:
+            limits:
+              cpu: "1"
+            requests:
+              cpu: "500m"
+          ports:
+            - containerPort: 3000
