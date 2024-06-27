@@ -1,7 +1,7 @@
 pipeline {
     agent any
     environment {
-          APP_NAME = "reddit-clone-pipeline"
+          APP_NAME = "welcome-app"
     }
     stages {
          stage("Cleanup Workspace") {
@@ -11,15 +11,15 @@ pipeline {
          }
          stage("Checkout from SCM") {
              steps {
-                     git branch: 'main', credentialsId: 'github', url: 'https://github.com/Kakada10/a-reddit-clone-gitops'
+                     git branch: 'main', credentialsId: 'github', url: 'https://github.com/Kakada10/welcome-app-gitops'
              }
          }
          stage("Update the Deployment Tags") {
             steps {
                 sh """
-                    cat alb-ingress-deployment.yaml
-                    sed -i 's/${APP_NAME}.*/${APP_NAME}:${IMAGE_TAG}/g' alb-ingress-deployment.yaml
-                    cat alb-ingress-deployment.yaml
+                    cat deployment.yaml
+                    sed -i 's/${APP_NAME}.*/${APP_NAME}:${IMAGE_TAG}/g' deployment.yaml
+                    cat deployment.yaml
                 """
             }
          }
@@ -28,11 +28,11 @@ pipeline {
                 sh """
                     git config --global user.name "Kakada10"
                     git config --global user.email "kakadasiev2000@gmail.com"
-                    git add alb-ingress-deployment.yaml
+                    git add deployment.yaml
                     git commit -m "Updated Deployment Manifest"
                 """
                 withCredentials([gitUsernamePassword(credentialsId: 'github', gitToolName: 'Default')]) {
-                    sh "git push https://github.com/Kakada10/a-reddit-clone-gitops main"
+                    sh "git push https://github.com/Kakada10/welcome-app-gitops prod"
                 }
             }
          }
