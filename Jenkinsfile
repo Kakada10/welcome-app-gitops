@@ -11,7 +11,7 @@ pipeline {
          }
          stage("Checkout from SCM") {
              steps {
-                     git branch: 'main', credentialsId: 'github', url: 'https://github.com/Kakada10/welcome-app-gitops'
+                     git branch: 'prod', credentialsId: 'github', url: 'https://github.com/Kakada10/welcome-app-gitops'
              }
          }
          stage("Update the Deployment Tags") {
