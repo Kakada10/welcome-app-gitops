@@ -14,7 +14,7 @@ spec:
     spec:
       containers:
         - name: welcome-app
-          image: capybara22/welcome-app:prod-4
+          image: capybara22/welcome-app:prod-1
           resources:
             limits:
               cpu: "1"
