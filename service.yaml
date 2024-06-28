@@ -9,7 +9,7 @@ spec:
     app: welcome-app-qa
 
   ports:
-    - port: 3000
+    - port: 3002
       targetPort: 3000
 
   type: LoadBalancer
